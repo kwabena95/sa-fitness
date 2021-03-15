@@ -33,6 +33,7 @@ img{
     object-fit: cover;
     filter: grayscale(60%);
     transition: filter .3s ease;
+    border-radius: 3px;
 }
 html{
     scroll-behavior: smooth;
