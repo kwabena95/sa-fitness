@@ -30,11 +30,18 @@ button{
 img{
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    filter: grayscale(60%);
+    transition: filter .3s ease;
+}
+html{
+    scroll-behavior: smooth;
 }
 
 body{
     min-height: 100vh;
     font-family: var(--font);
+    background-color: var(--white);
     text-transform: capitalize;
 }
 
@@ -175,7 +182,84 @@ a.active{
     background-color: rgba(238, 238, 238, 0.096);
 }
 
-
+/* ABOUT ME*/
+.main-section{
+    width: 100;
+    height: 100vh;
+}
+#about{
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+    margin-top: 4rem;
+}
+#about .about-me-title{
+    font-size: 4rem;
+    color: var(--grey);
+    text-transform: uppercase;
+    text-align: center;
+}
+#about .container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 15px;
+    margin-top: 5rem;
+}
+#about .container .image-container{
+    display: flex;
+   width: 100%;
+   height: 100%;
+    position: relative;
+    z-index: 10;
+}
+#about .container .image-container .img{
+   width: 400px;
+   height: 700px;
+}
+#about .container .image-container .img-2{
+    margin-left: 10px;
+}
+#about .container .image-container .img img:hover{
+    filter: grayscale(0);
+}
+#about .container .content{
+    width: 100%;
+    height: 100%;
+}
+#about .container .content .about-me-text{
+    font-size: 1.3rem;
+    line-height: 1.5;
+    width: 60ch;
+    padding: .7rem;
+    color: var(--grey);
+}
+#about .container .content .about-me-text span{
+    color: var(--yellow);
+    font-weight: bold;
+    font-size: 3rem;
+}
+#about .container .content .social-text{
+    font-weight: 400;
+    margin: 1rem;
+}
+#about .container .content .social-icons{
+   padding: 1rem;
+}
+#about .container .content .social-icons a {
+    margin-right: 10px;
+    
+}
+#about .container .content .social-icons a .fab{
+    font-size: 2rem;
+    color: var(--black);
+}
+#about .container .content .social-icons a .fa-facebook-square:hover{
+    color: #5572af;
+}
+#about .container .content .social-icons a .fa-instagram-square:hover{
+    color: #833AB4;
+}
 /* MEDIA QUERIES */
 @media screen and (max-width: 1505px){
     .banner{
