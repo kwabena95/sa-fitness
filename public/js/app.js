@@ -2,9 +2,8 @@ const navToggle = document.querySelector('.nav-toggle');
 const linksContainer = document.querySelector('.links-container');
 const links = document.querySelector('.links');
 const navBar = document.querySelector('#nav');
-const prevBtn = document.querySelector('.btn-prev');
-const nextBtn = document.querySelector('.btn-next');
-const slides = document.querySelectorAll('.slide');
+const scrollLinks = document.querySelectorAll('.scroll-link');
+
 
 
 const showNavbar = () => {
@@ -23,35 +22,50 @@ window.addEventListener('scroll', () => {
 
 });
 
-// video slider
-const nextSlide = () => {
-    // get current slide element
-    const current = document.querySelector('.current');
-    // remove current class from slide
-    current.classList.remove('current');
-    if (current.nextElementSibling) {
-        // add to next sibling
-        current.nextElementSibling.classList.add('current');
-    } else {
-        // add current to first slide
-        slides[0].classList.add('current');
-    }
-}
+// move active class to the next link
+scrollLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        const active = document.querySelector('.active');
 
-const prevSlide = () => {
-    // get current slide element
-    const current = document.querySelector('.current');
-    // remove current class from slide
-    current.classList.remove('current');
-    if (current.previousElementSibling) {
-        // add to next sibling
-        current.previousElementSibling.classList.add('current');
-    } else {
-        // add current to first slide
-        slides[slides.length - 1].classList.add('current');
-    }
-}
+        if (!e.currentTarget.classList.contains('active')) {
+            link.classList.add('active')
+        }
+        if (e.currentTarget !== active) {
+            active.classList.remove('active');
+        }
 
-nextBtn.addEventListener('click', nextSlide);
-prevBtn.addEventListener('click', prevSlide);
+    });
+
+});
+
+// smooth scroll
+scrollLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        // prevent default
+        e.preventDefault();
+
+        // navigate to specific spot
+        const id = e.currentTarget.getAttribute('href').slice(1);
+        const element = document.getElementById(id);
+
+        const navHeight = navBar.getBoundingClientRect().height;
+        const containerHeight = linksContainer.getBoundingClientRect().height;
+        const fixednav = navBar.classList.contains('fixed-nav');
+        let positon = element.offsetTop - navHeight;
+
+
+        if (!fixednav) {
+            positon = positon - navHeight;
+        }
+        if (navHeight > 50) {
+            positon = positon + containerHeight;
+        }
+
+        window.scrollTo({
+            left: 0,
+            top: positon
+        });
+
+    })
+})
 navToggle.addEventListener('click', showNavbar);

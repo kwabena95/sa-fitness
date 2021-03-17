@@ -70,15 +70,16 @@ body{
     top: 0;
     left: 0;
     width:  100%;
-    background-color: var(--black);
+    background-color: var(--white);
     z-index: 9999;
     -webkit-box-shadow: 0px 13px 41px -12px rgba(0,0,0,0.425); 
     box-shadow: 0px 13px 41px -12px rgba(0, 0, 0, 0.425);
     transition: .3s ease-in-out;
 }
-/* #nav.nav-fixed .logo, #nav.nav-fixed .links-container .links li a{
-    color: var(--white)
-} */
+#nav.nav-fixed .logo, #nav.nav-fixed .links-container .links li a{
+    color: var(--black)
+}
+
 .nav-center{
     width: 70%;
     height: 100%;
@@ -86,33 +87,26 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    /* background-color: lightskyblue; */
 }
 .nav-header{
     display: flex;
-    flex: 1;
+    width: 110px;
+    height: 110px;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;
 }
-
-.nav-header .logo{
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--white);
+.nav-header img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-
-.nav-header .logo span{
-    font-size: 2.8rem;
-    color: var(--yellow);
-}
-
 .nav-header .nav-toggle{
     display: none;
 }
 .links-container{
-    display: flex;
-    flex: 1;
+    width: 60%;
 }
 
 .links-container .links{
@@ -120,10 +114,12 @@ body{
     margin: 0 auto;
     padding: 1.1rem 0;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .links-container .links li{
     font-size: 1.2rem;
-    width: 25%;
+    width: 15%;
     text-align: center;
     transform: translateY(8px);
 }
@@ -191,10 +187,10 @@ a.active{
 #about{
     width: 70%;
     height: 100%;
-    margin: 0 auto;
+    margin: 0rem auto;
     margin-top: 4rem;
 }
-#about .about-me-title, #workouts .workout-title, .price .price-title{
+#about .about-me-title{
     font-size: 4rem;
     color: var(--grey);
     text-transform: uppercase;
@@ -239,6 +235,7 @@ a.active{
     color: var(--yellow);
 }
 #about .container .content .p-title{
+    color: var(--black);
     padding: .7rem;
 }
 
@@ -250,6 +247,7 @@ a.active{
 #about .container .content .social-text{
     font-weight: 400;
     margin: 1rem;
+    color: var(--black);
 }
 #about .container .content .social-icons{
    padding: 1rem;
@@ -270,147 +268,93 @@ a.active{
 }
 
 /* END OF ABOUT */
-.workout-container{
+
+#workouts{
     width: 100%;
     height: 100vh;
     background-color: var(--black);
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
 }
-.workout-container .slider-title{
-    color: var(--white);
-    font-size: 2rem;
-    padding: 1.5rem 0;
-    text-align: center;
-}
-.workout-container .inner-container{
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-#workouts{
+.container{
     width: 70%;
     height: 100%;
-    margin: 0 auto; 
-    overflow-y: hidden;
-    position: relative;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    color: var(--white);
 }
-
-#workouts .slide{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 900px;
-    /* background-color: lightblue; */
-    opacity: 0;
-    transition: opacity .4s ease-in-out;
+.container .videos,.container .price-section{
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+.container .videos .title, .container .price-section .p-text{
+    font-size: 1.4rem;
+    margin: 3rem 0;
+    text-align: center;
+    text-transform: capitalize;
+}
+.container .videos .grd-video{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+}
+.container .videos .grd-video .video{
+    height: 400px;
+    outline: none;
+    border-radius: 5px;
+    object-fit: cover;
+}
+/* END OF WORKOUT */
+.container .price-section{
+    margin-left: 3rem;
+}
+.container .price-section .infos{
+    /* padding: 0 3rem; */
+    margin-left: 3rem;
+    margin-bottom: 3rem;
+}
+.container .price-section .infos .p-info{
+    list-style: square;
+    margin-bottom: 1rem;
+}
+.container .price-section .price-card{
+    width: 400px;
+    height: 500px;
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0 3rem;
+    -webkit-box-shadow: 0px 13px 41px -12px rgba(122, 122, 122, 0.425); 
+    box-shadow: 0px 13px 41px -12px rgba(122, 122, 122, 0.425);
+    padding: 1rem;
 }
-
-.inner-container #workouts .slide .video{
-    border-radius: 5px;
-    outline: none;
-    margin-bottom: 1rem;
-}
-#workouts .slide.current{
-    opacity: 1;
-}
-#workouts .slide .quotes{
-    background-color: var(--white);
-    font-size: 1.2rem;
-    padding: 2rem;
-}
-.workout-container .inner-container .btns{
-    position: absolute;
-    background-color: transparent;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    z-index: 10;
-    padding: 0 1rem;
-}
-.workout-container .inner-container .btns .btn{
-    background-color: transparent;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 1px solid var(--white);
-    transition: background .2s ease;
-    z-index: 10;
-}
-.workout-container .inner-container .btns .btn .fas{
-    font-size: 1.2rem;
-    color: var(--white);
-}
-.workout-container .inner-container .btns .btn:hover{
-    background-color: rgba(238, 238, 238, 0.096);
-}
-
-
-
-/* END OF WORKOUT */
-
-.price{
-    width: 70%;
-    height: 60vh;
-    margin:  0 auto;
-}
-.price .price-container{
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-top: 4rem;
-}
-.price .price-container .card-info{
-    width: 100%;
-    height: 100%;
-    padding: 2rem;
-
-}
-.price .price-container .card-info .text{
-    font-size: 1.2rem;
-    line-height: 1.2;
-    padding: .7rem;
-    color: var(--grey);
-}
-.price .price-container .price-card{
-    width: 400px;
-    height: 500px;
-    background-color: var(--black);
-    color: var(--white);
-    padding: 2rem;
-    margin: 0 auto;
-    border-radius: 5px;
-    -webkit-box-shadow: 0px 0px 15px -3px var(--grey); 
-    box-shadow: 0px 0px 15px -3px var(--grey);
-    text-align: center;
-}
-.price .price-container .price-card .card-title, .price .price-container .price-card .installments .card-title{
-    font-size: 2rem;
-    padding-bottom: 1rem;
-}
-.price .price-container .price-card .card-price{
-    font-size: 1.3rem;
-    padding-bottom: 1rem;
-}
-.price .price-container .price-card .card-price span{
+.container .price-section .price-card span{
     color: var(--yellow);
 }
-.price .price-container .price-card .installments .payment{
+.container .price-section .price-card .card-title{
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    margin-bottom: .8rem;
+}
+.container .price-section .price-card .card-price{
+    margin-bottom: .8rem;
+    font-weight: bold;
+}
+.container .price-section .price-card .installments{
+    margin-top: 1rem;
+    width: 100%;
+    padding: 1rem;
+}
+.container .price-section .price-card .installments .payment{
     margin-bottom: 1rem;
-    font-size: 1.1rem;
+
 }
-.price .price-container .price-card .installments .payment img{
-    background-color: var(--white);
-}
+
+
+
+
 
 
 
@@ -435,6 +379,18 @@ a.active{
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 1505px){
+    .links-container{
+        width: 80%;
+    }
+    
+    .links-container .links{
+        width: 100%;
+        margin: 0 auto;
+        padding: 1.1rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .banner{
         width: 100%;
     }
@@ -451,6 +407,7 @@ a.active{
 }
 
 @media screen and (max-width: 1180px){
+
     .nav-center, .banner{
         width: 90%;
     }
@@ -463,9 +420,7 @@ a.active{
 }
 
 @media screen and (max-width: 970px){
-    .nav-header{
-        flex: 40%;
-    }
+  
     .links-container{
         flex: 60%;
     }
@@ -477,19 +432,8 @@ a.active{
     }
 }
 
-@media screen and (max-width: 850px){
-  
-    .banner .container .banner-title{
-        font-size: 6.5rem;
-        margin-left: 20px;
-        text-transform: uppercase;
-    }
-    .banner .container .sub-title{
-        font-size: 1rem;
-    }
-  
-}
-@media screen and (max-width: 750px) and (min-width: 500px){
+
+@media screen and (max-width: 850px) and (min-width: 500px){
     
     #home{
         overflow-x: hidden;
@@ -505,10 +449,20 @@ a.active{
         width: inherit;
         height: 0;
     }
-    .nav-header{
-        width: 100%;
-        flex: 15%;
-        padding: 0 1rem;
+    #nav .nav-center .nav-header{
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
+    #nav .nav-center .nav-header .logo{
+        width: 70px;
+        height: 70px;
+    }
+    #nav.nav-fixed .nav-header .nav-toggle{
+        border: 3px solid var(--black);
+        color: var(--black);
     }
     .links-container{
         position: absolute;
