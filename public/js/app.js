@@ -3,6 +3,7 @@ const linksContainer = document.querySelector('.links-container');
 const links = document.querySelector('.links');
 const navBar = document.querySelector('#nav');
 const scrollLinks = document.querySelectorAll('.scroll-link');
+const footerDate = document.querySelector('footer span');
 
 
 
@@ -69,3 +70,6 @@ scrollLinks.forEach(link => {
     })
 })
 navToggle.addEventListener('click', showNavbar);
+
+// current footer date
+footerDate.textContent = new Date().getFullYear();
