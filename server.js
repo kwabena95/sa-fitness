@@ -1,5 +1,6 @@
 // Get dependencies
 const express = require('express');
+const router = require('express').Router()
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -19,9 +20,12 @@ app.use(express.json());
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-    res.render('index')
-})
+router.get('/', (req, res) => {
+    res.render('index.ejs')
+});
+router.get('/about', (req, res) => {
+    res.render('about-me.ejs');
+});
 
 
 // Lsten on port

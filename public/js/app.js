@@ -4,7 +4,9 @@ const links = document.querySelector('.links');
 const navBar = document.querySelector('#nav');
 const scrollLinks = document.querySelectorAll('.scroll-link');
 const footerDate = document.querySelector('footer span');
-
+const imageContainer = document.querySelectorAll('.img');
+const prevBtn = document.querySelector('#left-btn');
+const nextBtn = document.querySelector('#right-btn');
 
 
 const showNavbar = () => {
@@ -70,6 +72,37 @@ scrollLinks.forEach(link => {
     })
 })
 navToggle.addEventListener('click', showNavbar);
+
+// image slider
+const nextSlide = () => {
+
+    const current = document.querySelector('.current')
+    // remove current class from image container
+    current.classList.remove('current');
+    if (current.nextElementSibling.classList.contains('img')) {
+        current.nextElementSibling.classList.add('current');
+    } else {
+        imageContainer[0].classList.add('current');
+    }
+};
+
+
+const prevSlide = () => {
+
+    const current = document.querySelector('.current')
+    // remove current class from image container
+    current.classList.remove('current');
+    if (current.previousElementSibling) {
+        current.previousElementSibling.classList.add('current');
+    }
+    else {
+        imageContainer[imageContainer.length - 1].classList.add('current');
+    }
+
+};
+
+nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', prevSlide);
 
 // current footer date
 footerDate.textContent = new Date().getFullYear();

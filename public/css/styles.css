@@ -30,9 +30,6 @@ button{
 img{
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    filter: grayscale(60%);
-    transition: filter .3s ease;
     border-radius: 3px;
 }
 html{
@@ -211,18 +208,57 @@ a.active{
     z-index: 10;
 }
 #about .container .image-container .img{
-   width: 400px;
+    display: none;
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+#about .container .image-container .img.current{
+    display: block;
+}
+#about .container .image-container .arrows{
+    position: absolute;
+    content: '';
+    top: 30%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    z-index: 30;
+}
+#about .container .image-container .arrows .arrow-btn{
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgba(24, 24, 24, 0.733);
+    color: rgba(24, 24, 24, 0.733);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+#about .container .image-container .arrows .arrow-btn:hover{
+    background-color: rgba(238, 238, 238, 0.116);
+
+}
+#about .container .image-container .img{
+   width: 100%;
    height: 700px;
 }
-#about .container .image-container .img-2{
-    margin-left: 10px;
-}
-#about .container .image-container .img img:hover{
-    filter: grayscale(0);
+#about .container .image-container .img img{
+    object-fit: contain;
 }
 #about .container .content{
     width: 100%;
     height: 100%;
+}
+#about .container .content .show-content{
+    display: none;
 }
 #about .container .content .about-me-text{
     font-size: 1rem;
@@ -244,28 +280,7 @@ a.active{
     font-weight: bold;
     font-size: 3rem;
 }
-#about .container .content .social-text{
-    font-weight: 400;
-    margin: 1rem;
-    color: var(--black);
-}
-#about .container .content .social-icons{
-   padding: 1rem;
-}
-#about .container .content .social-icons a {
-    margin-right: 10px;
-    
-}
-#about .container .content .social-icons a .fab{
-    font-size: 2rem;
-    color: var(--black);
-}
-#about .container .content .social-icons a .fa-facebook-square:hover{
-    color: #5572af;
-}
-#about .container .content .social-icons a .fa-instagram-square:hover{
-    color: #833AB4;
-}
+
 
 /* END OF ABOUT */
 
@@ -486,8 +501,58 @@ footer img{
 
 
 
+/* ========================MEDIA QUERIES================================= */
 
+@media screen and (max-width: 1600px){
+    .nav-center{
+        background: red;
+    }
+    .nav-center, .banner .container, #about, #workouts .container, #contact .container{
+        width: 90%;
+    }
+    .container .videos .grd-video{
+        gap: 10px;
+    }
+    .container .videos .grd-video .video{
+        height: 300px;
+        
+    }
+    /* END OF WORKOUT */
+    .container .price-section{
+        margin-left: 0;
+    }
+}
 
+@media screen and (max-width: 1440px){
+    .nav-center{
+        background: green;
+    }
+    #about .container .content .display{
+        display: none;
+    }
+    #about .container .content .about-me-text{
+        font-size: 1rem;
+        line-height: 2;
+        width: 60ch;
+        padding: 0 .7rem;
+        color: var(--grey);
+        margin-bottom: 1rem;
+    }
+    #about .container .content .show-content{
+        display: inline-block;
+        margin-left: .7rem;
+        padding: 10px 2rem;
+        background-color: var(--yellow);
+        font-weight: 700;
+        color: var(--black);
+        border-radius: 5px;
+        transition: opacity .2s ease;
+    }
+    #about .container .content .show-content:hover{
+        opacity: .9;
+    }
+  
+}
 
 
 
@@ -505,7 +570,17 @@ footer img{
 
 
 /* MEDIA QUERIES */
-@media screen and (max-width: 1505px){
+/* @media screen and (max-width: 1605px){
+    body{
+        overflow-x: hidden;
+    }
+    .nav-header{
+        background-color: red;
+    }
+    .nav-center, #about, #workouts, #contact{
+        width: 90%;
+   
+    }
     .links-container{
         width: 80%;
     }
@@ -531,10 +606,42 @@ footer img{
     .banner .container .sub-title{
         font-size: 1.6rem;
     }
+    #about .container .image-container .arrows{
+        padding: .6rem;
+    }
+    .container .videos .grd-video{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .container .videos .grd-video .video{
+        width: 300px;
+        height: 250px;
+    }
+    #workouts{
+        width: 100%;
+        height: 100vh;
+        background-color: var(--black);
+    }
+    .container .price-section{
+        margin-left: 1rem;
+    }
+    .container{
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        color: var(--white);
+    }
+    #contact .container{
+        width: 90%;
+        
+    }
 }
 
 @media screen and (max-width: 1180px){
-
+    .nav-header{
+        background-color: blueviolet;
+    }
     .nav-center, .banner{
         width: 90%;
     }
@@ -649,4 +756,4 @@ footer img{
     .banner .container .sub-title{
         font-size: 1rem;
     }
-}
+} */
