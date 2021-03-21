@@ -21,12 +21,12 @@ app.set('views', './views');
 app.set('view engine', 'ejs');
 
 router.get('/', (req, res) => {
-    res.render('index.ejs')
+    res.render('index')
 });
 router.get('/about', (req, res) => {
-    res.render('about-me.ejs');
+    res.render('about-me');
 });
 
-
+app.use(router);
 // Lsten on port
 app.listen(PORT, () => { console.log(`Listening on port ${PORT}`) });

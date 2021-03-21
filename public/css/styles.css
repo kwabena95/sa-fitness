@@ -1,46 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
-
 :root{
-    --black: #09080d;
     --yellow: #ffb705;
+    --black: #09080d;
     --white: #f8f9fa;
-    --grey:  #7e7d7e;
-    --font: 'Open Sans', sans-serif;
-}
-
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-a{
-    text-decoration: none;
-}
-
-li{
-    list-style: none;
-}
-
-button{
-    outline: none;
-    cursor: pointer;
-}
-
-img{
-    width: 100%;
-    height: 100%;
-    border-radius: 3px;
-}
-html{
-    scroll-behavior: smooth;
-}
-
-body{
-    min-height: 100vh;
-    font-family: var(--font);
-    background-color: var(--white);
-}
+    --grey: #7e7d7e;
+ }
+ *{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+ html{
+     font-size: 62.6%;
+     scroll-behavior: smooth;
+ }
+ body{
+     font-family: 'Raleway', sans-serif;
+     min-height: 100vh;
+ }
+ a{
+     text-decoration: none;
+ }
+ button{
+     outline: none;
+     cursor: pointer;
+ }
+ li{
+     list-style: none;
+ }
+ img{
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+ }
 
 .wrapper{
     width: 100%;
@@ -48,398 +39,439 @@ body{
    
 }
 
-/* header */
-#home{
+/* HEADER */
+.header{
     width: 100%;
     height: 100vh;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('../images/banner.jpg');
-    background-repeat: none;
-    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../images/banner.jpg');
     background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  
 }
-#nav{
-    width: inherit;
-    height: 90px;
-    background-color: transparent;
+.navbar{
+    width: 100%;
+    height: 11vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
 }
-#nav.nav-fixed{
+.logo{
+    width: 60px;
+    height: 60px;
+}
+.hamburger{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    padding: 3px;
+    border: 2px solid var(--white);
+}
+.hamburger > div{
+    width: 100%;
+    height: 3px;
+    background-color: var(--white);
+    transition: all .3s ease;
+}
+.nav-items{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    top: 8%;
+    right: 0;
+    border-radius: 50% 0 0 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--white);
+    font-size: 1.6rem;
+    font-weight: bold;
+    transform: translateX(100%);
+    transition: transform .3s;
+    z-index: 20;
+}
+.nav-items.active{
+    transform: translateX(0);
+}
+.nav-items .nav-link{
+    position: relative;
+    padding: 3px 0;
+}
+.nav-items .nav-link a{
+    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.nav-link::before,
+.nav-link::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    background-color: var(--yellow);
+    width: 100%;
+    height: 3px;
+    transform: scaleX(0);
+    transition: transform .3s;
+}
+.nav-link::after{
+    bottom: 0;
+    transform-origin: right;
+}
+.nav-link::before{
+    top: 0;
+    transform-origin: left;
+}
+.nav-link:hover::before,
+.nav-link:hover::after{
+    transform: scale(1);
+}
+.navbar.fixed{
     position: fixed;
     top: 0;
     left: 0;
-    width:  100%;
+    width: 100%;
+    height: 11vh;
     background-color: var(--white);
-    z-index: 9999;
     -webkit-box-shadow: 0px 13px 41px -12px rgba(0,0,0,0.425); 
     box-shadow: 0px 13px 41px -12px rgba(0, 0, 0, 0.425);
-    transition: .3s ease-in-out;
+    transition: all .3s;
+    z-index: 20;
 }
-#nav.nav-fixed .logo, #nav.nav-fixed .links-container .links li a{
-    color: var(--black)
-}
-
-.nav-center{
-    width: 70%;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* background-color: lightskyblue; */
-}
-.nav-header{
-    display: flex;
-    width: 110px;
-    height: 110px;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-}
-.nav-header img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.nav-header .nav-toggle{
-    display: none;
-}
-.links-container{
-    width: 60%;
-}
-
-.links-container .links{
-    width: 100%;
-    margin: 0 auto;
-    padding: 1.1rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.links-container .links li{
-    font-size: 1.2rem;
-    width: 15%;
-    text-align: center;
-    transform: translateY(8px);
-}
-.links-container .links li a{
-    color: var(--white);
-    letter-spacing: 2px;
-    text-transform: capitalize;
-}
-.links-container .links li:nth-child(odd){
-    margin: 0 1rem;
-}
-.links-container .links li:hover a{
-    opacity: .9;
-}
-
-a.active{
-    border-bottom: 4px solid var(--yellow);
-}
-
-/* END OF NAV */
-
-/* BANNER */
-.banner{
-    height: calc(100% - 90px);
-}
-.banner .container{
-    width: 70%;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 12rem;
-    color: var(--white);
-    background-color: transparent;
-    line-height: 1.6;
-}
-.banner .container .banner-title{
-    font-size: 12rem;
-    text-transform: uppercase;
-}
-.banner .container .sub-title{
-    font-size: 2rem;
-    font-weight: 200;
-    text-transform: uppercase;
-}
-.banner .container .btn{
-    border: 3px solid var(--white);
-    padding: 6px 4rem;
-    margin-top: 3rem;
-    color: var(--white);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: background .2s ease;
-}
-.banner .container .btn:hover{
-    background-color: rgba(238, 238, 238, 0.096);
-}
-
-/* ABOUT ME*/
-.main-section{
-    width: 100;
-    height: 100vh;
-}
-#about{
-    width: 70%;
-    height: 100%;
-    margin: 0rem auto;
-    margin-top: 4rem;
-}
-#about .about-me-title{
-    font-size: 4rem;
-    color: var(--grey);
-    text-transform: uppercase;
-    text-align: center;
-}
-#about .container{
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 15px;
-    margin-top: 5rem;
-}
-#about .container .image-container{
-    display: flex;
-   width: 100%;
-   height: 100%;
-    position: relative;
-    z-index: 10;
-}
-#about .container .image-container .img{
-    display: none;
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-}
-#about .container .image-container .img.current{
-    display: block;
-}
-#about .container .image-container .arrows{
-    position: absolute;
-    content: '';
-    top: 30%;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    z-index: 30;
-}
-#about .container .image-container .arrows .arrow-btn{
-    width: 50px;
-    height: 50px;
-    border: 2px solid rgba(24, 24, 24, 0.733);
-    color: rgba(24, 24, 24, 0.733);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    cursor: pointer;
-    transition: all .2s ease;
-}
-#about .container .image-container .arrows .arrow-btn:hover{
-    background-color: rgba(238, 238, 238, 0.116);
-
-}
-#about .container .image-container .img{
-   width: 100%;
-   height: 700px;
-}
-#about .container .image-container .img img{
-    object-fit: contain;
-}
-#about .container .content{
-    width: 100%;
-    height: 100%;
-}
-#about .container .content .show-content{
-    display: none;
-}
-#about .container .content .about-me-text{
-    font-size: 1rem;
-    line-height: 1.5;
-    width: 80ch;
-    padding: 0 .7rem;
-    color: var(--grey);
-}
-#about .container .content .about-me-text strong{
-    color: var(--yellow);
-}
-#about .container .content .p-title{
-    color: var(--black);
-    padding: .7rem;
-}
-
-#about .container .content .about-me-text span{
-    color: var(--yellow);
-    font-weight: bold;
-    font-size: 3rem;
-}
-
-
-/* END OF ABOUT */
-
-#workouts{
-    width: 100%;
-    height: 100vh;
+.navbar.fixed .hamburger{
+    border-color: var(--black);
+} 
+.navbar.fixed .hamburger > div{
     background-color: var(--black);
 }
-.container{
-    width: 70%;
-    height: 100%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+.navbar.fixed .nav-items{
+    background-color: var(--black);
+}
+.navbar.fixed .nav-link a{
     color: var(--white);
 }
-.container .videos,.container .price-section{
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
+/* .hamburger.toggle.line-1{
+    transform: rotate(-45deg) translate(-5px 6px);
 }
-.container .videos .title, .container .price-section .p-text{
-    font-size: 1.4rem;
-    margin: 3rem 0;
-    text-align: center;
-    text-transform: capitalize;
+.toggle .hamburger .line-2{
+    opacity: 0;
 }
-.container .videos .grd-video{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
+.toggle .hamburger .line-1{
+    transform: rotate(45deg) translate(-5px -6px);
+} */
+
+/*============================== END OF NAVBAR ==================================*/
+
+/* BANNER */
+.contents{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 23rem;
+    align-items: center;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
-.container .videos .grd-video .video{
-    height: 400px;
-    outline: none;
-    border-radius: 5px;
-    object-fit: cover;
+.banner-title, .sub-title, .btn-cta{
+    margin: 1.5rem 0;
 }
-/* END OF WORKOUT */
-.container .price-section{
-    margin-left: 3rem;
+.banner-title{
+    font-size: 7rem;
+    font-weight: 700;
 }
-.container .price-section .infos{
-    /* padding: 0 3rem; */
-    margin-left: 3rem;
-    margin-bottom: 3rem;
+.sub-title{
+    font-size: 1.3rem;
 }
-.container .price-section .infos .p-info{
-    list-style: square;
-    margin-bottom: 1rem;
+.btn-cta{
+    padding: 10px 5rem;
+    border: 2px solid var(--white);
+    background: transparent;
+    transition: background .3s;
 }
-.container .price-section .price-card{
-    width: 400px;
-    height: 500px;
-    text-align: center;
+.btn-cta a{
+    color: var(--white);
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.btn-cta:hover{
+    background-color: rgba(238, 238, 238, 0.096);
+}
+/* ======================END OF BANNER=========================================== */
+
+
+/* MAIN */
+.main-container{
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 1rem;
+    position: relative;
+}
+/* ==============================END OF MAIN======================================*/
+
+/* ======================ABOUT======================================================== */
+.about, .pricing, .contact{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0 3rem;
-    -webkit-box-shadow: 0px 13px 41px -12px rgba(122, 122, 122, 0.425); 
-    box-shadow: 0px 13px 41px -12px rgba(122, 122, 122, 0.425);
-    padding: 1rem;
-}
-.container .price-section .price-card span{
-    color: var(--yellow);
-}
-.container .price-section .price-card .card-title{
-    font-size: 1.5rem;
-    text-transform: capitalize;
-    margin-bottom: .8rem;
-}
-.container .price-section .price-card .card-price{
-    margin-bottom: .8rem;
-    font-weight: bold;
-}
-.container .price-section .price-card .installments{
-    margin-top: 1rem;
     width: 100%;
-    padding: 1rem;
-}
-.container .price-section .price-card .installments .payment{
-    margin-bottom: 1rem;
-
-}
-
-/* END OF WORKOUTS */
-
-/* CONATCT */
-#contact{
-    width: 100%;
-    height: 100vh;
-    background-color: var(--white);
-}
-#contact .container{
-    width: 70%;
     height: 100%;
-    margin: 0 auto;
-    color: var(--grey);
+}
+.about, .pricing{
+    margin: 5rem 0;
+    padding: 3rem 0;
+}
+.about-title{
+    font-weight: 700;
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+.about-contents{
+    width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.container .title{
-    font-size: 1.4rem;
-    margin: 3rem 0;
-    text-align: center;
-    text-transform: capitalize;
+.about-info{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    font-size: 1.3rem;
+    line-height: 2;
+    font-weight: 400;
+    /* background: lightcoral; */
 }
-.container .contact{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    height: 89%;
-    padding-left: 10px;
+.about-me-text span{
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--yellow);
 }
-.container .contact .form, .container .contact-info{
+.about-me-text strong{
+    color: var(--yellow);
+}
+.p-title{
+    font-weight: 700;
+    padding: 1.5rem 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+}
+.p-title::after{
+    content: '';
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #eee;
+    position: absolute;
+}
+.carousel {
+    width: 470px;
+    height: 500px;
+    box-shadow: -1px -1px 25px 0px rgba(196, 195, 195, 0.43);
+    -webkit-box-shadow: -1px -1px 25px 0px rgba(196, 195, 195, 0.43);
+    -moz-box-shadow: -1px -1px 25px 0px rgba(196, 195, 195, 0.43);
+}
+.carousel .carousel-inner{
     width: 100%;
     height: 100%;
 }
-.container .contact .form .label-name,.container .contact .form .form-input{
-    width: 70%;
-    padding: 5px 0;
-    margin: 10px 0;
+/* ======================END OF ABOUT======================================================== */
+
+/* PRICING */
+.pricing{
+    background-color: var(--black);
+    color: var(--white);
 }
-.container .contact .form .label-name label{
-    font-size: 1.2rem;
-    text-transform: capitalize;
-    font-weight: 400;
-}
-.container .contact .form .form-input input, .container .contact .form .form-input textarea{
+.container{
     width: 100%;
-    padding: 1rem;
-    outline: none;
-    border-radius: 5px;
-    border: 2px solid rgba(53, 53, 53, 0.377);
-    font-size: 1.3rem;
+    height: 100%;
 }
-.container .contact .form .form-input textarea{
-    resize: none;
-    height: 300px;
-    font-size: 1.3rem;
-}
-.container .contact .form .form-btn{
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    border: 2px solid rgba(53, 53, 53, 0.377);
-    outline: none;
-    cursor: pointer;
-    border-radius: 5px;
-    color: var(--grey);
+.pricing-title{
     font-weight: 700;
-    transition: background .2s ease-in;
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
 }
-.container .contact .form .form-btn:hover{
+.price-section{
+    width: 100%;
+    height: 100%;
+}
+.p-text, h4{
+    text-transform: capitalize;
+    font-size: 2rem;
+}
+.p-info{
+    font-size: 1.3rem;
+}
+.price-card{
+    width: 80%;
+    height: 400px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #50cec8;
+    margin: 4rem auto;
+    border-radius: 5px;
+}
+.card-title{
+    font-size: 2.4rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 3rem;
+}
+.card-price{
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.card-price span, 
+.payment span{
+    color: var(--grey);
+    font-weight: bold;
+}
+.price-card .installments{
+    text-align: center;
+}
+.price-card .installments .payment{
+    padding: 1.2rem 0;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+}
+.btn-show{
+    padding: 10px 3.5rem;
+    margin: 2rem 0;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
     background-color: var(--yellow);
+    transition: transform .3s;
+}
+.btn-show a{
     color: var(--black);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.btn-show:hover{
+    transform: scale(.96);
+}
+.videos{
+  display: none;
 }
 
-/* END OF FORM */
-.container .contact-info .inner-container{
+.fa-times-circle{
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-size: 3rem;
+    margin: 2rem;
+    color: #e01e37;
+    cursor: pointer;
+    transition: transform .3s;
+}
+.fa-times-circle:hover{
+    transform: scale(1.2);
+}
+.videos .title{
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    text-align: left;
+}
+.flex-video{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.flex-video .video{
+    height: 350px;
+    margin: 2rem 0;
+    border-radius: 5px;
+}
+/* .videos.display{
+    transform: translateY(0);
+} */
+
+/* =======================END OF PRICING */
+
+/* CONTACT */
+.contact{
+    padding: 1rem;
+}
+.contact-title{
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+.contact-contents{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form{
+    width: 100%;
+}
+.form .label-name{
+    padding: 1.4rem 0;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+.form input{
+    padding: 1rem 10px;
+    width: 100%;
+    outline: none;
+    border: 2px solid rgba(53, 53, 53, 0.377);
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+.form textarea{
+    width: 100%;
+    height: 200px;
+    outline: none;
+    border: 2px solid rgba(53, 53, 53, 0.377);
+    border-radius: 5px;
+    font-size: 1.5rem;
+    resize: none;
+    margin-bottom: 3rem;
+    padding: 1rem;
+}
+.form-btn{
+    padding: 1rem 4rem;
+    border: 2px solid rgba(151, 151, 151, 0.377);
+    color: var(--black);
+    font-weight: 700;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    transition: all .2s;
+}
+.form-btn:hover{
+    background-color: var(--yellow);
+}
+.contact-info{
+    width: 100%;
+    margin-top: 3rem;
+}
+.contact-info .inner-container{
     width: 100%;
     height: 20%;
     display: flex;
@@ -447,313 +479,341 @@ a.active{
     align-items: center;
     border-left: 2px solid rgba(53, 53, 53, 0.377);
     border-bottom: 2px solid rgba(53, 53, 53, 0.377);
-    padding-left: 1rem;
+    padding: 3rem;
 }
-.container .contact-info .inner-container .far, 
-.container .contact-info .inner-container .fas{
-    margin-right: 1rem;
+.far, .fas{
+    font-size: 2rem;
+    margin-right: 3rem;
+    color: var(--yellow);
+}
+.contact-info .inner-container .info{
+    font-size: 1.7rem;
+}
+.inner-container a{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgba(151, 151, 151, 0.377);
+    margin-right: 1.4rem;
+}
+.inner-container a .fab{
     font-size: 2rem;
     color: var(--yellow);
 }
-.container .contact-info .inner-container .info{
-    font-size: 1.1rem;
-    font-weight: 400;
-}
-
-.container .contact-info .inner-container:last-child a{
-   margin-right: 10px;
-   width: 50px;
-   height: 50px;
-   border-radius: 50%;
-   border: 2px solid rgba(53, 53, 53, 0.377);
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   transition: border .2s ease-in-out;
-}
-.container .contact-info .inner-container:last-child a .fab{
-    font-size: 1.5rem;
-    color: var(--yellow);
-}
-.container .contact-info .inner-container:last-child a:hover{
-    border: 3px solid #f94144;
-}
-
-/* END OF CONTACT */
-
+/* ==================END OF CONTACT==================================== */
 /* FOOTER */
-footer{
+.footer{
     width: 100%;
-    height: 200px;
+    height: 20vh;
     background-color: var(--black);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     color: var(--grey);
-}
-footer img{
-    width: 70px;
-    height: 70px;
-    margin-bottom: 1rem;
+    margin-top: 3rem;
 }
 
 
-
-
-/* ========================MEDIA QUERIES================================= */
-
-@media screen and (max-width: 1600px){
-    .nav-center{
-        background: red;
+/* =========================MEDIA QUERIES====================================== */ 
+@media screen and (min-width:280px){
+    /* .nav-items{
+        height: 11%;
+    } */
+    /* .nav-items{
+        top: 11%;
+    } */
+    .nav-items{
+        position: fixed;
+        width: 300px;
+        height: 100%;
+        top: 11%;
+        right: 0;
+        border-radius: 50% 0 0 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: var(--white);
+        font-size: 1.6rem;
+        font-weight: bold;
+        transform: translateX(100%);
+        transition: transform .3s;
+        z-index: 20;
     }
-    .nav-center, .banner .container, #about, #workouts .container, #contact .container{
-        width: 90%;
+  .navbar.fixed{
+        height: 11vh;
     }
-    .container .videos .grd-video{
-        gap: 10px;
+    .banner-title{
+        font-size: 3rem;
     }
-    .container .videos .grd-video .video{
+    .sub-title{
+        font-size: .7rem;
+    }
+    .card-title{
+        font-size: 1.1rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        margin-top: 1rem;
+    }
+    .carousel {
+        width: 250px;
         height: 300px;
-        
+
     }
-    /* END OF WORKOUT */
-    .container .price-section{
-        margin-left: 0;
+    .price-card .installments .payment{
+        font-size: 1.2rem;
+    }
+    h4{
+        font-size: 1.4rem;
+    }
+    .btn-show{
+        padding: 10px 3rem;
+
+    }
+    .btn-show a{
+        font-size: .8rem;
+    }
+    .far, .fas{
+        font-size: 1.5rem;
+        margin-right: 2rem;
+    }
+    .contact-info .inner-container .info{
+        font-size: 1.3rem;
+    }
+    .form-btn{
+        font-size: .8rem;
+        padding: 10px 3rem;
     }
 }
 
-@media screen and (max-width: 1440px){
-    .nav-center{
-        background: green;
+@media screen and (min-width: 320px){
+    .card-title{
+
+        font-size: 1.3rem;
     }
-    #about .container .content .display{
-        display: none;
+}
+
+@media screen and (min-width:380px){
+    .wrapper{
+        overflow-x: hidden;
     }
-    #about .container .content .about-me-text{
+    .carousel {
+        width: 340px;
+        height: 370px;
+
+    }
+    .banner-title{
+        font-size: 4rem;
+    }
+    .sub-title{
         font-size: 1rem;
-        line-height: 2;
-        width: 60ch;
-        padding: 0 .7rem;
-        color: var(--grey);
-        margin-bottom: 1rem;
     }
-    #about .container .content .show-content{
-        display: inline-block;
-        margin-left: .7rem;
-        padding: 10px 2rem;
-        background-color: var(--yellow);
-        font-weight: 700;
-        color: var(--black);
-        border-radius: 5px;
-        transition: opacity .2s ease;
+    .card-title{
+        font-size: 2rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        margin-top: 3rem;
     }
-    #about .container .content .show-content:hover{
-        opacity: .9;
+}
+
+@media screen and (min-width:463px){
+    .wrapper{
+        overflow-x: hidden;
+    }
+    .navbar.fixed{
+        /* height: 14vh; */
+        display: flex;
+        align-items: center;
+        padding: 2rem;
+    }
+    .contents{
+        padding: 0 2rem;
+        justify-content: center;
+    }
+    .banner-title{
+        font-size: 6rem;
     }
   
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* MEDIA QUERIES */
-/* @media screen and (max-width: 1605px){
-    body{
-        overflow-x: hidden;
+@media screen and (min-width: 720px){
+  
+}
+@media only screen and (min-width:790px){
+    .navbar{
+       padding: 0 5rem;
     }
-    .nav-header{
-        background-color: red;
+ 
+    .banner-title{
+        font-size: 12rem;
     }
-    .nav-center, #about, #workouts, #contact{
-        width: 90%;
-   
+    .sub-title{
+        font-size: 2.5rem;
     }
-    .links-container{
-        width: 80%;
+    .carousel {
+        width: 550px;
+        height: 600px;
     }
-    
-    .links-container .links{
-        width: 100%;
-        margin: 0 auto;
-        padding: 1.1rem 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .about-contents{
+       padding: 0 5rem;
     }
-    .banner{
-        width: 100%;
+    .about-info{
+        width: 90ch;
     }
-    .banner .container{
-        width: 100%;
-        text-align: center;
+    .pricing{
+        padding: 1rem 5rem;
     }
-    .banner .container .banner-title{
-        font-size: 10rem;
+    .contact{
+        padding: 1rem 5rem;
     }
-    .banner .container .sub-title{
-        font-size: 1.6rem;
+    .price-card{
+        width: 400px;
+        height: 500px;
     }
-    #about .container .image-container .arrows{
-        padding: .6rem;
+    .p-info, .p-text{
+        margin-bottom: 1.3rem;
     }
-    .container .videos .grd-video{
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .container .videos .grd-video .video{
-        width: 300px;
-        height: 250px;
-    }
-    #workouts{
-        width: 100%;
-        height: 100vh;
-        background-color: var(--black);
-    }
-    .container .price-section{
-        margin-left: 1rem;
-    }
-    .container{
-        width: 90%;
-        height: 100%;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        color: var(--white);
-    }
-    #contact .container{
-        width: 90%;
-        
+    .btn-show{
+        padding: 13px 4rem;
     }
 }
 
-@media screen and (max-width: 1180px){
-    .nav-header{
-        background-color: blueviolet;
+@media screen and (min-width: 900px){
+  
+    .logo{
+        width: 50px;
+        height: 50px;
     }
-    .nav-center, .banner{
-        width: 90%;
+    .hamburger{
+       display: none;
     }
-    .banner .container .banner-title{
-        font-size: 9rem;
+    .videos .fa-times-circle{
+       display: none;
     }
-    .banner .container .sub-title{
+    .nav-items{
+       transform: translateX(0);
+       border-radius: 0;
+       position: static; 
+       flex-direction: row;
+       width: 80%;
+       height: 100%;
+       background-color: transparent;
+    }
+    .nav-items .nav-link a{
+        color: var(--white);
+    }
+    .navbar.fixed .nav-items{
+        background-color: var(--white);
+    }
+    .navbar.fixed .nav-link a{
+        color: var(--black);
+    }
+    .banner-title{
+        font-size: 13rem;
+    }
+    .contact-contents{
+        flex-direction: row;
+    }
+    .contact-info{
+        margin-top: 0;
+        margin-left: 4rem;
+        width: 100%;
+        height: 50vh;
+    }
+    .contact-info .inner-container{
+        height: 24%;
+    }
+  
+}
+@media screen and (min-width: 1024px){
+    .nav-link a{
+        font-size: 2rem;
+    }
+    logo{
+        width: 90px;
+        height: 90px;
+    }
+    .carousel{
+        width: 500px;
+        height: 500px;
+    }
+    .about-me-text{
         font-size: 1.5rem;
     }
+
 }
 
-@media screen and (max-width: 970px){
-  
-    .links-container{
-        flex: 60%;
+@media screen and (min-width: 1180px){
+    .navbar{
+        padding: 1rem 10rem;
+        height: 11vh;
     }
-    .banner .container{
-        padding-top: 20rem;
+    .banner-title{
+        font-size: 15rem;
     }
-    .banner .container .banner-title{
-        font-size: 7rem;
+    .about-contents{
+        flex-direction: row;
     }
-}
-
-
-@media screen and (max-width: 850px) and (min-width: 500px){
-    
-    #home{
-        overflow-x: hidden;
+    .carousel{
+        width: 550px;
+        height: 700px;
+        margin-right: 2rem;
+        background: transparent;
     }
-    #nav{
-        position: relative;
-        width: 100%;
-        z-index: 9999;
-        
-    }
-    #nav .nav-center{
-        flex-direction: column;
-        width: inherit;
-        height: 0;
-    }
-    #nav .nav-center .nav-header{
-        width: 90%;
+    .pricing .container{
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 0;
+        margin-right: 2rem;
     }
-    #nav .nav-center .nav-header .logo{
-        width: 70px;
-        height: 70px;
+    .videos{
+        display: block;
     }
-    #nav.nav-fixed .nav-header .nav-toggle{
-        border: 3px solid var(--black);
-        color: var(--black);
+    .flex-video{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
-    .links-container{
-        position: absolute;
-        top: 4.6rem;
-        left: -1000px;
-        width: 100%;
-        flex: 80%;
-        background-color: var(--white);
-        -webkit-box-shadow: 0px 13px 41px -12px rgba(0,0,0,0.425); 
-        box-shadow: 0px 13px 41px -12px rgba(0, 0, 0, 0.425);
-        margin-top: 1rem;
-        transition: all .3s ease-in-out;
+    .flex-video .video{
+        width: 300px;
+        height: 350px;
     }
-    
-    .links-container .links{
+    .price-section{
+        display: flex;
         flex-direction: column;
+        align-items: flex-start;
     }
-    .links-container .links li{
-        width: 95%;
-        text-align: left;
-        padding: 1rem;
-        background-color: transparent;
+    .infos{
+        margin: 0 auto;
     }
-    .links-container .links li a{
-        display: block;
-        color: var(--black);
+    .p-text, h4, .btn-show{
+       margin-left: 7.5rem;
     }
-    .links-container .links li:nth-child(even){
-        margin: 0 1rem;
+    .p-info{
+        margin-left: 1rem;
     }
-    .nav-header .nav-toggle{
-        display: block;
-        width: 35px;
-        height: 35px;
-        border: 3px solid var(--white);
-        border-radius: 5px;
-        background-color: transparent;
-        color: var(--white);
-        transform: translateY(6px);
+}
+
+
+@media screen and (min-width: 1280px){
+   
+    .contact-info{
+        height: 100%;
     }
-    .show.links-container{
-       left: 0;
-       transition: all.3s ease-in-out;
+    .contents{
+        justify-content: center;
     }
-    .show.links-container .links li:hover{
-        background-color: var(--white);
-        -webkit-box-shadow: 1px 0px 13px -6px rgba(0,0,0,0.89); 
-        box-shadow: 1px 0px 13px -6px rgba(0,0,0,0.89);
-        transition: .4s ease-in-out;
+    .navbar.fixed{
+        padding: 4rem 1rem;
     }
-    a.active{
-        border-bottom: none;
+    .navbar.fixed .logo{
+        margin-top: -2rem;
     }
-    .banner .container .banner-title{
-        font-size: 5rem;
-    }
-    .banner .container .sub-title{
-        font-size: 1rem;
-    }
-} */
+
+}
+
+
+
+
