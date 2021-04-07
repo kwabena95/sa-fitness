@@ -1,0 +1,146 @@
+:root{
+    --red: #f94144;
+    --black: #09080d;
+    --white: #f8f9fa;
+    --grey: #7e7d7e;
+}
+*{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+html{
+     font-size: 62.6%;
+     scroll-behavior: smooth;
+}
+body{
+     font-family: 'Raleway', sans-serif;
+     min-height: 100vh;
+}
+a{
+     text-decoration: none;
+}
+button{
+     outline: none;
+     cursor: pointer;
+}
+li{
+     list-style: none;
+}
+img{
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+}
+
+.container{
+    max-width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+#home{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('/assets/images/banner.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header{
+    width: 100%;
+    height: 100px;
+    background-color: var(--black);
+    position: fixed;
+    top: 0;
+   
+    padding: 10px 10rem;
+}
+ .header .navbar{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+ .header .navbar .nav-items{
+    display: flex;
+
+}
+ .header .navbar .nav-items .nav-links{
+    margin: 7rem;
+    font-size: 1.5rem;
+}
+ .header .navbar .nav-items .nav-links a{
+    color: var(--white);
+    text-transform: uppercase;
+    transition: color .3s ease;
+}
+
+.header .navbar .nav-items .soc-link a{
+    margin-right: 3rem;
+    transition: color .3s ease;
+}
+ .header .navbar .nav-items .soc-link a:hover,
+ .header .navbar .nav-items .nav-links a:hover
+{
+    color: var(--red);
+}
+
+/* DONT'T SHOW MENU BAR */
+ .header .navbar .menu-toggle{
+    display: none;
+}
+
+/* BANNER CONTENT */
+.banner-content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.banner-content .lead{
+    font-size: 2rem;
+    letter-spacing: 1.4px;
+    color: var(--grey);
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+.banner-content .header-title{
+    color: var(--white);
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+}
+.banner-content .cta{
+    margin-top: 4rem;
+}
+.banner-content .cta .btn{
+    padding: 12px 2rem;
+    letter-spacing: 2px;
+}
+.banner-content .cta .get-started-btn{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--white);
+}
+.banner-content .cta .get-started-btn:hover{
+    color: var(--red);
+}
+.banner-content .cta .learn-more-btn{
+    color: var(--red);
+    border: none;
+    outline: none;
+    border-radius: 3px;
+}
+
+/* END OF SECTION HOME */
