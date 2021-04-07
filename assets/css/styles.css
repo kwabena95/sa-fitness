@@ -140,7 +140,65 @@ img{
     color: var(--red);
     border: none;
     outline: none;
+    border: 2px solid var(--red);
+    background-color: transparent;
     border-radius: 3px;
+    transition: .3s ease;
+}
+.banner-content .cta .learn-more-btn:hover{
+    background-color: var(--white);
+    border: 2px solid var(--white);
 }
 
 /* END OF SECTION HOME */
+
+/* STYLING MEMBERSHIP SECTION */
+#membership{
+    width: 100%;
+    height: 400px;
+    background-color: var(--black);
+    color: var(--white);
+}
+.inner-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.inner-container .panel{
+    width: 50%;
+    height: 100%;
+    padding: 10rem;
+    line-height: 2;
+    font-size: 1.5rem;
+}
+.inner-container .left-panel .left-panel-title,
+.inner-container .right-panel .right-panel-title{
+    font-size: 3.9rem;
+}
+.inner-container .line{
+    width: 2px;
+    height: 60%;
+    background-color: rgba(255, 255, 255, 0.212);
+    box-shadow: -5px 1px 12px 0px rgba(255,255,255,0.75);
+    -webkit-box-shadow: -5px 1px 12px 0px rgba(255, 255, 255, 0.164);
+    -moz-box-shadow: -5px 1px 12px 0px rgba(255,255,255,0.164);
+}
+.inner-container .left-panel .left-panel-cta{
+    width: 95%;
+    height: 50px;
+    margin-top: 3rem;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    background-color: var(--red);
+    color: var(--white);
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    transition: .3s ease;
+}
+.inner-container .left-panel .left-panel-cta:hover{
+    background-color: var(--white);
+    color: var(--red);
+}
