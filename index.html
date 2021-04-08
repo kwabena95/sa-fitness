@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/styles.css">
-    <title>SA Fitness | HOME page</title>
+    <link rel="shortcut icon" href="/assets//images/logo.jpg" type="image/x-icon">
+    <title>SA Fitness</title>
 </head>
 
 <body>
@@ -21,9 +22,9 @@
                     </div>
 
                     <ul class="nav-items">
-                        <li class="nav-links"><a href="#home">Home</a></li>
-                        <li class="nav-links"><a href="#about">About</a></li>
-                        <li class="nav-links"><a href="#contact">Contact</a></li>
+                        <li class="nav-links"><a href="#home" class="scroll-link">Home</a></li>
+                        <li class="nav-links"><a href="#about" class="scroll-link">About</a></li>
+                        <li class="nav-links"><a href="#contact" class="scroll-link">Contact</a></li>
                         <li class="nav-links soc-link"><a href="https://www.instagram.com/samisjustfit/"
                                 target="_blank"><i class="fab fa-instagram"></i></a><a
                                 href="https://www.facebook.com/samuelowusuansah264" target="_blank"><i
@@ -42,8 +43,9 @@
                 <h1 class="header-title">UPGRADE YOUR BODY AT </h1>
                 <h1 class="header-title">SA FITNESS</h1>
                 <div class="cta">
-                    <button class="btn get-started-btn"><a href="#membership">GET STARTED</a></button>
-                    <button class="btn learn-more-btn"><a href="#about">LEARN MORE</a></button>
+                    <button class="btn get-started-btn"><a href="#membership" class="scroll-link">GET
+                            STARTED</a></button>
+                    <button class="btn learn-more-btn"><a href="#about" class="scroll-link">LEARN MORE</a></button>
                 </div>
             </div>
 
@@ -113,7 +115,7 @@
                 </div>
                 <div class="image-container">
                     <div class="image-box box-1"><img src="/assets/images/pic_3.jpg" alt="image of trainner"></div>
-                    <div class="image-box"><img src="/assets/images/pic_4.jpg" alt="image of trainner"></div>
+                    <div class="image-box box-2"><img src="/assets/images/pic_4.jpg" alt="image of trainner"></div>
                 </div>
             </div>
         </section>
@@ -123,7 +125,7 @@
             <div class="contact-inner-container">
                 <div class="contact-form">
                     <h2 class="contact-title">Feel free to ask anything</h2>
-                    <form action="#" class="form">
+                    <form name="contact" method="POST" data-netlify="true" class="form">
                         <div class="form-group">
                             <input type="text" class="form-input" name="firstname" placeholder="Firstname" required>
                         </div>
@@ -136,6 +138,7 @@
                         <div class="form-group">
                             <textarea name="textarea" class="textarea" placeholder="Message" required></textarea>
                         </div>
+                        <div data-netlify-recaptcha="true"></div>
                         <button type="submit" class="submit-cta">Send Message</button>
                     </form>
                 </div>
