@@ -1,6 +1,6 @@
 :root{
     --red: #f94144;
-    --black: #09080d;
+    --black: #161a1d;
     --white: #f8f9fa;
     --grey: #7e7d7e;
 }
@@ -37,6 +37,7 @@ img{
     max-width: 100%;
     height: 100%;
     margin: 0 auto;
+    position: relative;
 }
 #home{
     width: 100%;
@@ -195,16 +196,276 @@ img{
     width: 95%;
     height: 50px;
     margin-top: 3rem;
-    font-size: 1.6rem;
-    text-transform: uppercase;
     background-color: var(--red);
-    color: var(--white);
     outline: none;
     border: none;
     border-radius: 3px;
     transition: .3s ease;
 }
+.inner-container .left-panel .left-panel-cta a{
+    color: var(--white);
+    font-size: 1.6rem;
+    text-transform: uppercase;
+}
 .inner-container .left-panel .left-panel-cta:hover{
     background-color: var(--white);
+}
+.inner-container .left-panel .left-panel-cta:hover a{
     color: var(--red);
 }
+
+
+/* END OF MEMBERSHIP */
+
+/* STYLING ABOUT SECTION */
+#about{
+    width: 100%;
+    height: 100%;
+    background-color: #f3eff5;
+    padding-top: 6rem;
+}
+.about-inner-container{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about-inner-container .about-context{
+    width: 50%;
+    height: 100%;
+}
+.about-inner-container .about-context .about-title{
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+.about-inner-container .about-context  .text-content{
+    line-height: 1.8;
+    height: 400px;
+    overflow-y: scroll;
+    padding: 1rem 0;
+}
+.about-inner-container .about-context  .text-content .lead{
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin: 1rem 0;
+}
+.about-inner-container .about-context  .text-content .text{
+    font-size: 1.6rem;
+    color: var(--grey);
+}
+.about-inner-container .about-context  .text-content .text strong{
+    text-transform: uppercase;
+    color: var(--red);
+}
+
+/* STYLING IMAGE CONTAIINER */
+.about-inner-container .image-container{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    margin-left: 1.5rem;
+    padding: 3rem;
+}
+.about-inner-container .image-container .image-box{
+    width: 400px;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0px 3px 9px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, 0.363);
+    -moz-box-shadow: 0px 3px 9px 0px rgba(0,0,0,0.363);
+}
+.about-inner-container .image-container .image-box img{
+    border-radius: 5px;
+}
+.about-inner-container .image-container .box-1{
+    margin-right: 2rem;
+}
+
+/* END OF ABOUT */
+
+/* STYLING CONATCT SECTION */
+#contact{
+    width: 100%;
+    height: 100%;
+    padding: 6rem 0;
+    background-color: var(--black);
+}
+.contact-inner-container{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    color: var(--white);
+    padding-top: 5rem;
+}
+.contact-inner-container .contact-form,
+.contact-inner-container .location{
+    width: 50%;
+    height: 100%;
+}
+.contact-inner-container .contact-form .contact-title{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+.contact-inner-container .contact-form .form{
+    width: 100%;
+    height: 100%;
+    padding-right: 2rem;
+}
+.contact-inner-container .contact-form .form .form-group{
+    margin-bottom: 20px;
+}
+.contact-inner-container .contact-form .form .form-group .form-input{
+    width: 100%;
+    height: 60px;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: 2px solid var(--grey);
+    outline: none;
+    background-color: transparent;
+    font-size: 1.8rem;
+    color: var(--white);
+}
+.modal .modal-container .form-group .form-input{
+    color: var(--grey);
+}
+.contact-inner-container .contact-form .form .form-group .form-input::placeholder,
+.contact-inner-container .contact-form .form .form-group .textarea::placeholder{
+    color: var(--grey);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+.contact-inner-container .contact-form .form .form-group .textarea{
+    width: 100%;
+    height: 200px;
+    background-color: transparent;
+    padding: 10px;
+    resize: none;
+    border: 2px solid var(--grey);
+    font-size: 1.8rem;
+    color: var(--white);
+    outline: none;
+    border-radius: 5px;
+    font-family: 'Raleway', sans-serif;
+}
+.modal .modal-container .form .form-group .textarea{
+    color: var(--grey);
+}
+.contact-inner-container .contact-form .form .submit-cta{
+    width: 100%;
+    height: 60px;
+    background-color: var(--red);
+    color: var(--white);
+    outline: none;
+    border: none;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.7rem;
+    font-weight: 700;
+    transition: opacity .3s ease;
+}
+.contact-inner-container .contact-form .form .submit-cta:hover{
+    opacity: .9;
+}
+
+/* STYLING MAP */
+.contact-inner-container .location {
+    margin-left: 3rem;
+}
+.contact-inner-container .location .contact-title{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+.contact-inner-container .location .text{
+    font-size: 2rem;
+    margin: 3rem 0;
+}
+.contact-inner-container .location .text i{
+    color: var(--red);
+    margin-right: 1rem;
+}
+.contact-inner-container .location .map{
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.contact-inner-container .location .map iframe{
+    width: 100%;
+    height: 100%;
+}
+
+/* END OF CONTACT */
+
+/* FOOTER */
+.footer{
+    width: 100%;
+    height: 100%;
+    padding: 6rem 0;
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.footer .line{
+    width: 90%;
+    height: 1px;
+    background-color: var(--grey);
+    box-shadow: -5px 1px 12px 0px rgba(255,255,255,0.164);
+    -webkit-box-shadow: -5px 1px 12px 0px rgba(255, 255, 255, 0.164);
+    -moz-box-shadow: -5px 1px 12px 0px rgba(255,255,255,0.164);
+    margin-bottom: 4rem;
+}
+.footer .footer-inner-container{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    color: var(--grey);
+}
+.footer .footer-inner-container .copyright{
+    width: 50%;
+    height: 100%;
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+.footer .logo{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+.footer .footer-inner-container .info{
+    width: 50%;
+    height: 100%;
+    font-size: 1.5rem;
+    line-height: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.footer .footer-inner-container .info i{
+    color: var(--red);
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
