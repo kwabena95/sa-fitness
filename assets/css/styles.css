@@ -32,7 +32,7 @@ img{
      height: 100%;
      object-fit: cover;
 }
-
+   
 .container{
     max-width: 100%;
     height: 100%;
@@ -482,7 +482,20 @@ img{
 
 /* MEDIA QUERIES */
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 1536px){
+    .header .navbar, .inner-container, .about-inner-container,.contact-inner-container,.footer .footer-inner-container{
+        max-width: 1536px;
+        margin: 0 auto;
+    }
+    .banner-content .lead{
+        font-size: 4rem;
+    }
+    .banner-content .header-title{
+        font-size: 9rem;
+    }
+}
+   
+@media screen and (max-width: 1201px) {
     .header .navbar .nav-items .nav-links{
         margin: 5rem;
         font-size: 1.5rem;
@@ -493,7 +506,7 @@ img{
     }
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 968px){
   
     .header .navbar .menu-toggle{
         display: block;
@@ -543,6 +556,9 @@ img{
     /* BANNER */
     .banner-content .lead{
         font-size: 2rem;
+    }
+    .banner-content .header-title{
+       font-size: 6rem;
     }
     .banner-content{
         margin-top: 9rem;
@@ -613,9 +629,9 @@ img{
     }
 }
     
-@media screen and (max-width: 640px){
+@media screen and (max-width: 798px){
     .banner-content .header-title{
-        font-size: 3rem;
+        font-size: 5rem;
 
     }
     .inner-container .left-panel .left-panel-title,
@@ -634,15 +650,16 @@ img{
         height: 500px;
         margin-bottom: 2rem;
     }
-    .about-inner-container .image-container .box-2{
-        height: 750px;
-    }
     .contact-inner-container .location {
         margin-left: 0;
     }
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 540px){
+    .banner-content .header-title{
+        font-size: 3rem;
+    
+    }
     #membership{
         height: 100%;
     }
@@ -659,7 +676,8 @@ img{
     }
 }
 
-@media screen and (max-width: 411px){
+@media screen and (max-width: 500px){
+  
     .banner-content{
         padding: 0 1rem;
     }
