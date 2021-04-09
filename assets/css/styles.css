@@ -137,8 +137,9 @@ img{
     outline: none;
     background-color: transparent;
     color: var(--white);
+    transition:  .3s ease;
 }
-.banner-content .cta .get-started-btn:hover{
+.banner-content .cta .get-started-btn:hover a{
     color: var(--red);
 }
 .banner-content .cta .learn-more-btn{
@@ -368,10 +369,10 @@ img{
     border-radius: 5px;
     font-size: 1.7rem;
     font-weight: 700;
-    transition: opacity .3s ease;
+    transition: transform .3s ease;
 }
 .contact-inner-container .contact-form .form .submit-cta:hover{
-    opacity: .9;
+    transform: scale(1.02);
 }
 
 /* STYLING MAP */
