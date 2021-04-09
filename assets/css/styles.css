@@ -370,6 +370,7 @@ img{
     font-size: 1.7rem;
     font-weight: 700;
     transition: transform .3s ease;
+    margin-top: 1rem;
 }
 .contact-inner-container .contact-form .form .submit-cta:hover{
     transform: scale(1.02);
@@ -453,6 +454,9 @@ img{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+}
+.footer .footer-inner-container .info > div{
+    color: var(--grey);
 }
 .footer .footer-inner-container .info i{
     color: var(--red);
@@ -659,6 +663,9 @@ img{
 }
 
 @media screen and (max-width: 540px){
+    .header{
+        padding: 0 2rem
+    }
     .banner-content .header-title{
         font-size: 3rem;
     
